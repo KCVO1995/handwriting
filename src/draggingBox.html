@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    #box {
+      width: 100px;
+      height: 100px;
+      background: red;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+<script>
+  const box = document.querySelector('#box')
+  let draggable = false
+  let position = []
+
+  const moveBox = (x, y) => {
+    const deltaX = x - position[0]
+    const deltaY = y - position[1]
+    const left = parseInt((box.style.left || '0px').replace('px'))
+    const top = parseInt((box.style.top || '0px').replace('px'))
+    box.style.left = left + deltaX + 'px'
+    box.style.top = top + deltaY + 'px'
+    position = [x, y]
+  }
+  box.addEventListener('mousedown', () => {
+    draggable = true
+  })
+  box.addEventListener('mouseup', () => {
+    draggable = false
+  })
+  box.addEventListener('mousemove', e => {
+    if (draggable) {
+      console.dir(e, '移动事件')
+      moveBox(e.clientX, e.clientY)
+    }
+  })
+
+</script>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "handwriting",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "test_deepClone": "mocha test/deepClone.test.js",
+    "test_eventBus": "mocha test/eventBus.test.js",
+    "test_bind": "mocha test/bind.test.js",
+    "test_promise": "mocha test/promise.test.js",
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^8.3.2",
+    "sinon": "^10.0.0",
+    "sinon-chai": "^3.6.0"
+  }
+}
